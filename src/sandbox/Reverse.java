@@ -6,15 +6,17 @@ public class Reverse {
 		
 		String message = "This is a message.";
 		char[] input = message.toCharArray();
-		char[] output = {};
+		String output = "";
 		int i = input.length - 1;
-		int j = 0;
 		while (i >= 0) {
-			System.out.println(input[i]);
-			output[j] = input[i];
+			System.out.print(input[i]);
+			String active = Character.toString(input[i]);
+			output += active;
 			i--;
-			j++;
+			
 		}
+		
+		System.out.println(output);
 		
 	} //end main
 	

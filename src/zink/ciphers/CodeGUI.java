@@ -1,5 +1,6 @@
 package zink.ciphers;
 
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,12 +8,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-@SuppressWarnings("serial")
 public class CodeGUI extends JFrame {
+
+	private static final long serialVersionUID = 1L;
 
 	CodeMachine machine = new CodeMachine();
 
@@ -58,17 +61,21 @@ public class CodeGUI extends JFrame {
 		contentPane.add(txtEnterCodeHere);
 		txtEnterCodeHere.setColumns(10);
 		
+		/*
 		JLabel lblOutputlbl = new JLabel("Output:");
 		lblOutputlbl.setBounds(6, 204, 61, 16);
 		contentPane.add(lblOutputlbl);
+		*/
 		
 		JLabel lblTitle = new JLabel("CodeMachine by Henry Zink");
 		lblTitle.setBounds(6, 6, 190, 16);
 		contentPane.add(lblTitle);
 		
+		/*
 		JLabel lblOutput = new JLabel("(Output Goes Here)");
-		lblOutput.setBounds(62, 204, 134, 16);
+		lblOutput.setBounds(62, 204, 349, 16);
 		contentPane.add(lblOutput);
+		*/
 		
 		JLabel lblCaesarEncryptFactor = new JLabel("Caesar Encrypt Factor:");
 		lblCaesarEncryptFactor.setBounds(6, 232, 149, 16);
@@ -87,7 +94,8 @@ public class CodeGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//TODO Call CodeMachine Function with parameters
 				String output = machine.caesar_encrypt(txtEnterCodeHere.getText(), Integer.parseInt(textEncFac.getText()));
-				lblOutput.setText(output);
+				Component frame = null;
+				JOptionPane.showMessageDialog(frame, "Original: " + txtEnterCodeHere.getText() + "\nEncrypted: " + output);
 				txtEnterCodeHere.setText(output);
 			}
 		});
@@ -99,7 +107,8 @@ public class CodeGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//TODO Call CodeMachine Function with parameters
 				String output = machine.caesar_decrypt(txtEnterCodeHere.getText(), Integer.parseInt(textEncFac.getText()));
-				lblOutput.setText(output);
+				Component frame = null;
+				JOptionPane.showMessageDialog(frame, "Original: " + txtEnterCodeHere.getText() + "\nEncrypted: " + output);
 				txtEnterCodeHere.setText(output);
 			}
 		});
@@ -111,7 +120,8 @@ public class CodeGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//TODO Call CodeMachine Function with parameters
 				String output = machine.alphanumeric(txtEnterCodeHere.getText());
-				lblOutput.setText(output);
+				Component frame = null;
+				JOptionPane.showMessageDialog(frame, "Original: " + txtEnterCodeHere.getText() + "\nEncrypted: " + output);
 				txtEnterCodeHere.setText(output);
 			}
 		});
@@ -121,9 +131,9 @@ public class CodeGUI extends JFrame {
 		JButton btnReverse = new JButton("Reverse");
 		btnReverse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO Call CodeMachine Function with parameters
 				String output = machine.reverse(txtEnterCodeHere.getText());
-				lblOutput.setText(output);
+				Component frame = null;
+				JOptionPane.showMessageDialog(frame, "Original: " + txtEnterCodeHere.getText() + "\nEncrypted: " + output);
 				txtEnterCodeHere.setText(output);
 			}
 		});
