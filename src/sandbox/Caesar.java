@@ -1,6 +1,6 @@
-package zink.ciphers;
+package sandbox;
 
-public class Sandbox {
+public class Caesar {
 	
 	static char[] ALPHABET = {'A', 'B', 'C', 'D', 'E', 'F', 'G',
 			'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
