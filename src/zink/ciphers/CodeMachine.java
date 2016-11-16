@@ -51,7 +51,7 @@ public class CodeMachine {
 			if (input[i] == letter) return i;
 			// When the character is found, the value in the array is returned
 		}
-		return -1; // Error Catch - Add If statement catch to return System.err
+		return 25; // Error Catch - Add If statement catch to return System.err
 	} //end findLoc
 	
 }

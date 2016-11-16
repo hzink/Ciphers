@@ -92,7 +92,6 @@ public class CodeGUI extends JFrame {
 		JButton btnEncryptCaesar = new JButton("Encrypt Caesar");
 		btnEncryptCaesar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO Call CodeMachine Function with parameters
 				String output = machine.caesar_encrypt(txtEnterCodeHere.getText(), Integer.parseInt(textEncFac.getText()));
 				Component frame = null;
 				JOptionPane.showMessageDialog(frame, "Original: " + txtEnterCodeHere.getText() + "\nEncrypted: " + output);
@@ -105,7 +104,6 @@ public class CodeGUI extends JFrame {
 		JButton btnDecryptCaesar = new JButton("Decrypt Caesar");
 		btnDecryptCaesar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO Call CodeMachine Function with parameters
 				String output = machine.caesar_decrypt(txtEnterCodeHere.getText(), Integer.parseInt(textEncFac.getText()));
 				Component frame = null;
 				JOptionPane.showMessageDialog(frame, "Original: " + txtEnterCodeHere.getText() + "\nEncrypted: " + output);
@@ -139,8 +137,6 @@ public class CodeGUI extends JFrame {
 		});
 		btnReverse.setBounds(6, 163, 259, 29);
 		contentPane.add(btnReverse);
-		
-
 		
 	}
 }
