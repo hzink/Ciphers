@@ -6,14 +6,19 @@ public class CodeMachine {
 	
 	final char[] ALPHABET = {'A', 'B', 'C', 'D', 'E', 'F', 'G',
 			'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
-			'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '?'};
+			'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	
 	public String caesar_encrypt(String str, int factor) {
 		char[] input = str.toCharArray();
 		String output = "";
 		for (int i = 0; i < input.length; i++) {
-			output += Character.toString(ALPHABET[findLoc(ALPHABET, Character.toUpperCase(input[i])) + factor]);
-		}
+			char addition = Character.toUpperCase(input[i]);
+			if (findLoc(ALPHABET, addition) == -1) {
+				output += Character.toString(input[i]); //if input is not in the array, adds it unchanged to 'output'
+			} else {
+				output += Character.toString(ALPHABET[findLoc(ALPHABET, addition) + factor]);
+			} //end if
+		} //end for
 		return output;
 	} //end caesar_encrypt method
 	
@@ -23,8 +28,13 @@ public class CodeMachine {
 		char[] input = str.toCharArray();
 		String output = "";
 		for (int i = 0; i < input.length; i++) {
-			output += Character.toString(ALPHABET[findLoc(ALPHABET, Character.toUpperCase(input[i])) - factor]);
-		}
+			char additionChar = Character.toUpperCase(input[i]);
+			if (findLoc(ALPHABET, additionChar) == -1) {
+				output += Character.toString(input[i]); //if input is not in the array, adds it unchanged to 'output'
+			} else {
+				output += Character.toString(ALPHABET[findLoc(ALPHABET, additionChar) - factor]);
+			} //end if
+		} //end for
 		return output;
 	} //end caesar_decyprt method
 	
@@ -51,7 +61,7 @@ public class CodeMachine {
 			if (input[i] == letter) return i;
 			// When the character is found, the value in the array is returned
 		}
-		return 25; // Error Catch - Add If statement catch to return System.err
+		return -1; // Error Catch - Add If statement catch to return System.err
 	} //end findLoc
 	
 }
