@@ -56,7 +56,7 @@ public class Caesar {
 		
 	public static int findLoc(char[] input, char letter) {
 		// Takes input char array (input) and character to find (letter)
-		for (int i = 0; i < 25; i++) {
+		for (int i = 0; i < 26; i++) {
 			if (input[i] == letter) return i;
 			// When the character is found, the value in the array is returned
 		}

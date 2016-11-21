@@ -13,10 +13,16 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+/**
+ * JFrame implementation of CodeMachine
+ * @author henryzink
+ * @version 0.1
+ */
 public class CodeGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
+	/** Calls class CodeMachine for encrypt/decrypt methods */
 	CodeMachine machine = new CodeMachine();
 
 	private JPanel contentPane;
@@ -113,18 +119,28 @@ public class CodeGUI extends JFrame {
 		btnDecryptCaesar.setBounds(135, 81, 130, 29);
 		contentPane.add(btnDecryptCaesar);
 		
-		JButton btnAlphanumeric = new JButton("Alphanumeric");
-		btnAlphanumeric.addActionListener(new ActionListener() {
+		JButton btnAlphaEnc = new JButton("ABC --> 123");
+		btnAlphaEnc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//TODO Call CodeMachine Function with parameters
-				String output = machine.alphanumeric(txtEnterCodeHere.getText());
+				String output = machine.alphaEnc(txtEnterCodeHere.getText());
 				Component frame = null;
 				JOptionPane.showMessageDialog(frame, "Original: " + txtEnterCodeHere.getText() + "\nEncrypted: " + output);
 				txtEnterCodeHere.setText(output);
 			}
 		});
-		btnAlphanumeric.setBounds(6, 122, 259, 29);
-		contentPane.add(btnAlphanumeric);
+		btnAlphaEnc.setBounds(6, 122, 117, 29);
+		contentPane.add(btnAlphaEnc);
+		
+		JButton btnAlphaDec = new JButton("123 --> ABC");
+		btnAlphaDec.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//TODO Call CodeMachine Function with parameters
+				System.out.println("Alpha Dec Button Pressed");
+			}
+		});
+		btnAlphaDec.setBounds(135, 122, 130, 29);
+		contentPane.add(btnAlphaDec);
 		
 		JButton btnReverse = new JButton("Reverse");
 		btnReverse.addActionListener(new ActionListener() {
@@ -137,6 +153,8 @@ public class CodeGUI extends JFrame {
 		});
 		btnReverse.setBounds(6, 163, 259, 29);
 		contentPane.add(btnReverse);
+		
+
 		
 	}
 }
